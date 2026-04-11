@@ -61,7 +61,7 @@ export default function Hero() {
               priority={index === 0}
             />
             {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/50"></div>
+            <div className="absolute inset-0 bg-[#402823]/50"></div>
           </div>
         ))}
       </div>
@@ -107,7 +107,7 @@ export default function Hero() {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-white/20 hover:bg-white/40 transition-colors text-white"
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-2 rounded-none bg-[#402823] hover:bg-[#c0652a] transition-colors text-white"
         aria-label="Previous slide"
       >
         <ChevronLeft className="w-6 h-6" />
@@ -115,7 +115,7 @@ export default function Hero() {
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-white/20 hover:bg-white/40 transition-colors text-white"
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-2 rounded-none bg-[#402823] hover:bg-[#c0652a] transition-colors text-white"
         aria-label="Next slide"
       >
         <ChevronRight className="w-6 h-6" />
