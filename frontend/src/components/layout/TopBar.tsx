@@ -30,7 +30,7 @@ export default function TopBar() {
   ];
 
   return (
-    <div className="bg-[#402823] border-b border-gray-700 py-1.5 z-40">
+    <div className="bg-[#402823] border-b border-gray-700 py-1.5">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between flex-wrap gap-2">
           {/* Left Section - Social Media & Contact */}

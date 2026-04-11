@@ -1,139 +1,56 @@
 "use client";
 
-import { Mail, Phone, MapPin, Share2, MessageCircle, Send, Globe } from "lucide-react";
+import Image from "next/image";
+import { Mail, Phone } from "lucide-react";
+import icon from "@/src/assets/images/iconKubata.png";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-[#4a2e1f] text-gray-200">
-            {/* Main Footer */}
-            <div className="px-4 py-16 border-b border-gray-700">
+        <footer className="bg-gray-100 text-gray-200">
+            <div className="px-4 py-12">
                 <div className="container mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-                        {/* Company Info */}
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                        {/* Logo e Descrição */}
                         <div>
-                            <h3 className="text-xl font-bold text-white mb-4">Kubata</h3>
-                            <p className="text-sm text-gray-400 mb-6">
-                                Sua plataforma confiável para encontrar o lar perfeito em Angola.
+                            <Image
+                                src={icon}
+                                alt="Kubata"
+                                width={120}
+                                height={40}
+                                className="h-10 w-auto mb-2 "
+                            />
+                            <p className="text-sm text-gray-400">
+                                Plataforma de imóveis em Angola
                             </p>
-                            {/* Social Links */}
-                            <div className="flex gap-3">
-                                <a href="#" className="p-2 bg-[#c0652a] hover:bg-[#b8561f] rounded-full transition-colors" title="Share">
-                                    <Share2 size={18} />
-                                </a>
-                                <a href="#" className="p-2 bg-[#c0652a] hover:bg-[#b8561f] rounded-full transition-colors" title="Message">
-                                    <MessageCircle size={18} />
-                                </a>
-                                <a href="#" className="p-2 bg-[#c0652a] hover:bg-[#b8561f] rounded-full transition-colors" title="Send">
-                                    <Send size={18} />
-                                </a>
-                                <a href="#" className="p-2 bg-[#c0652a] hover:bg-[#b8561f] rounded-full transition-colors" title="Website">
-                                    <Globe size={18} />
+                        </div>
+
+                        {/* Contato */}
+                        <div className="flex flex-col md:flex-row gap-6">
+                            <div className="flex items-center gap-2">
+                                <Mail size={18} className="text-[#c0652a]" />
+                                <a href="mailto:info@kubata.com" className="text-sm text-gray-400 hover:text-[#c0652a] transition-colors">
+                                    info@kubata.com
                                 </a>
                             </div>
-                        </div>
-
-                        {/* Quick Links */}
-                        <div>
-                            <h4 className="text-white font-semibold mb-4">Links Rápidos</h4>
-                            <ul className="space-y-2">
-                                <li>
-                                    <a href="#" className="text-gray-400 hover:text-[#c0652a] transition-colors">
-                                        Início
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-gray-400 hover:text-[#c0652a] transition-colors">
-                                        Explorar Propriedades
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-gray-400 hover:text-[#c0652a] transition-colors">
-                                        Sobre Nós
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-gray-400 hover:text-[#c0652a] transition-colors">
-                                        Blog
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        {/* Categories */}
-                        <div>
-                            <h4 className="text-white font-semibold mb-4">Categorias</h4>
-                            <ul className="space-y-2">
-                                <li>
-                                    <a href="#" className="text-gray-400 hover:text-[#c0652a] transition-colors">
-                                        Apartamentos
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-gray-400 hover:text-[#c0652a] transition-colors">
-                                        Casas
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-gray-400 hover:text-[#c0652a] transition-colors">
-                                        Escritórios
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" className="text-gray-400 hover:text-[#c0652a] transition-colors">
-                                        Villas
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        {/* Contact */}
-                        <div>
-                            <h4 className="text-white font-semibold mb-4">Contacte-nos</h4>
-                            <div className="space-y-3">
-                                <div className="flex items-start gap-3">
-                                    <Phone size={18} className="text-[#c0652a] mt-0.5 shrink-0" />
-                                    <div>
-                                        <p className="text-sm text-gray-400">+244 923 000 000</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start gap-3">
-                                    <Mail size={18} className="text-[#c0652a] mt-0.5 shrink-0" />
-                                    <div>
-                                        <p className="text-sm text-gray-400">info@kubata.com</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start gap-3">
-                                    <MapPin size={18} className="text-[#c0652a] mt-0.5 shrink-0" />
-                                    <div>
-                                        <p className="text-sm text-gray-400">Luanda, Angola</p>
-                                    </div>
-                                </div>
+                            <div className="flex items-center gap-2">
+                                <Phone size={18} className="text-[#c0652a]" />
+                                <a href="tel:+244923000000" className="text-sm text-gray-400 hover:text-[#c0652a] transition-colors">
+                                    +244 923 000 000
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            {/* Bottom Footer */}
-            <div className="px-4 py-8">
-                <div className="container mx-auto">
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                        <p className="text-sm text-gray-400">
+                    {/* Separador */}
+                    <div className="border-t border-gray-700 my-6"></div>
+
+                    {/* Copyright */}
+                    <div className="text-center">
+                        <p className="text-xs text-gray-500">
                             &copy; {currentYear} Kubata. Todos os direitos reservados.
                         </p>
-                        <div className="flex gap-6 text-sm">
-                            <a href="#" className="text-gray-400 hover:text-[#c0652a] transition-colors">
-                                Política de Privacidade
-                            </a>
-                            <a href="#" className="text-gray-400 hover:text-[#c0652a] transition-colors">
-                                Termos de Serviço
-                            </a>
-                            <a href="#" className="text-gray-400 hover:text-[#c0652a] transition-colors">
-                                Cookies
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
