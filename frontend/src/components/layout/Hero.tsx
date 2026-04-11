@@ -43,7 +43,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full min-h-[67vh] flex items-center justify-center overflow-hidden pt-28">
+    <section className="relative w-full min-h-[67vh] flex items-center justify-center overflow-hidden">
       {/* Background Images Slider */}
       <div className="absolute inset-0">
         {slides.map((slide, index) => (

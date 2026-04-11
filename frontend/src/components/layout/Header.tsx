@@ -18,7 +18,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-white fixed w-full top-8 z-40">
+    <header className="bg-white sticky w-full  z-40">
       <nav className="container mx-auto px-4 py-4 flex items-center">
         {/* Desktop Navigation */}
         <ul className="hidden md:flex items-center space-x-6">
