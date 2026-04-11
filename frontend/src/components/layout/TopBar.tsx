@@ -30,7 +30,7 @@ export default function TopBar() {
   ];
 
   return (
-    <div className="bg-white border-b border-gray-200 py-1.5 z-40">
+    <div className="bg-[#402823] border-b border-gray-700 py-1.5 z-40">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between flex-wrap gap-2">
           {/* Left Section - Social Media & Contact */}
@@ -42,7 +42,7 @@ export default function TopBar() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="p-1 rounded-lg hover:bg-[#c0652a]/10 transition-colors text-[#4a2e1f] hover:text-[#c0652a]"
+                  className="p-1 rounded-lg hover:bg-[#c0652a]/20 transition-colors text-white hover:text-[#c0652a]"
                   title={label}
                 >
                   <Icon size={16} />
@@ -56,7 +56,7 @@ export default function TopBar() {
             {/* Email */}
             <a
               href="mailto:info@kubata.com"
-              className="flex items-center gap-1 text-xs text-[#4a2e1f] hover:text-[#c0652a] transition-colors"
+              className="flex items-center gap-1 text-xs text-white hover:text-[#c0652a] transition-colors"
             >
               <Mail size={15} />
               <span className="hidden sm:inline text-xs">info@kubata.com</span>
@@ -67,18 +67,18 @@ export default function TopBar() {
           <div className="flex items-center gap-4">
             {/* Wishlist */}
             <button
-              className="p-1 rounded-lg hover:bg-[#c0652a]/10 transition-colors text-[#c0652a] hover:text-[#c0652a]"
+              className="p-1 rounded-lg hover:bg-[#c0652a]/20 transition-colors text-white hover:text-[#c0652a]"
               title="Lista de Desejos"
             >
               <Heart size={16} />
             </button>
 
             {/* Divider */}
-            <div className="w-px h-5 bg-gray-300"></div>
+            <div className="w-px h-5 bg-gray-600"></div>
 
             {/* Currency Selector */}
             <div className="relative group">
-              <button className="flex items-center gap-1 px-2 py-1 text-xs rounded-lg hover:bg-[#c0652a]/10 transition-colors text-[#4a2e1f] hover:text-[#c0652a] font-medium">
+              <button className="flex items-center gap-1 px-2 py-1 text-xs rounded-lg hover:bg-[#c0652a]/20 transition-colors text-white hover:text-[#c0652a] font-medium">
                 {selectedCurrency}
                 <ChevronDown size={14} />
               </button>
@@ -102,11 +102,11 @@ export default function TopBar() {
             </div>
 
             {/* Divider */}
-            <div className="w-px h-5 bg-gray-300"></div>
+            <div className="w-px h-5 bg-gray-600"></div>
 
             {/* Language Selector */}
             <div className="relative group">
-              <button className="flex items-center gap-1 px-2 py-1 text-xs rounded-lg hover:bg-[#c0652a]/10 transition-colors text-[#4a2e1f] hover:text-[#c0652a] font-medium">
+              <button className="flex items-center gap-1 px-2 py-1 text-xs rounded-lg hover:bg-[#c0652a]/20 transition-colors text-white hover:text-[#c0652a] font-medium">
                 {selectedLanguage}
                 <ChevronDown size={14} />
               </button>
