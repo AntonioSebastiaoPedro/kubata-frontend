@@ -1,6 +1,7 @@
-import Header from "../components/layout/Header";
-import TopBar from "../components/layout/TopBar";
 import Hero from "../components/layout/Hero";
+import TopBar from "../components/layout/TopBar";
+import Header from "../components/layout/Header";
+import Highlight from "../components/layout/Highlight";
 import Categories from "../components/layout/Categories";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <Header />
       <Hero />
       <Categories />
+      <Highlight />
     </div>
   );
 }
