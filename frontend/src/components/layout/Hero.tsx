@@ -26,7 +26,7 @@ export default function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 8000);
+    }, 10000);
     return () => clearInterval(interval);
   }, []);
 
@@ -43,7 +43,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full min-h-[67vh] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full min-h-[67vh] flex items-center justify-center overflow-hidden pt-28">
       {/* Background Images Slider */}
       <div className="absolute inset-0">
         {slides.map((slide, index) => (
