@@ -3,6 +3,7 @@ import TopBar from "../components/layout/TopBar";
 import Header from "../components/layout/Header";
 import Highlight from "../components/layout/Highlight";
 import Categories from "../components/layout/Categories";
+import FeaturedProperties from "../components/layout/FeaturedProperties";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <Categories />
       <Highlight />
+      <FeaturedProperties />
     </div>
   );
 }
