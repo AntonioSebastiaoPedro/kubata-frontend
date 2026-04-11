@@ -85,7 +85,7 @@ export default function Categories() {
             {categoriesData.map((category) => (
               <div
                 key={category.id}
-                className="relative w-96 h-72 rounded-xl overflow-hidden group cursor-pointer transition-transform duration-300 hover:shadow-lg select-none flex-shrink-0"
+                className="relative w-80 h-72 rounded-xl overflow-hidden group cursor-pointer transition-transform duration-300 hover:shadow-lg select-none flex-shrink-0"
               >
                 {/* Background Image */}
                 <Image
