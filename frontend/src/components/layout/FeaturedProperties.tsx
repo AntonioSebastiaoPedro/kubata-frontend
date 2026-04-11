@@ -123,10 +123,10 @@ export default function FeaturedProperties() {
     }, []);
 
     return (
-        <section className="py-16 px-0 bg-gray-50">
-            <div className="">
+        <section className="py-16 px-0 bg-gray-100">
+            <div className="container mx-auto">
 
-                <div className="container mx-auto" >
+                <div className="" >
                     <div>
                         <h2 className="text-3xl md:text-4xl font-medium text-[#4a2e1f] mb-2">
                             Propriedades em Destaque
@@ -136,7 +136,7 @@ export default function FeaturedProperties() {
                         </p>
                     </div>
                     <div>
-                        
+
                     </div>
                 </div>
 
@@ -147,7 +147,7 @@ export default function FeaturedProperties() {
                     onMouseMove={handleMouseMove}
                     onMouseUp={handleMouseUp}
                     onMouseLeave={handleMouseUp}
-                    className="overflow-x-scroll scrollbar-hide cursor-grab active:cursor-grabbing"
+                    className="overflow-x-scroll scrollbar-hide"
                     style={{ scrollBehavior: "smooth" }}
                 >
                     <div className="flex gap-5 pb-4" style={{ width: "max-content" }}>
@@ -155,8 +155,8 @@ export default function FeaturedProperties() {
                             <div
                                 key={property.id}
                                 className={`relative rounded-sm overflow-hidden shrink-0 transition-all duration-300 card-featured ${index === currentIndex
-                                        ? "card-featured-active"
-                                        : "card-featured-inactive"
+                                    ? "card-featured-active"
+                                    : "card-featured-inactive"
                                     }`}
                             >
                                 {/* Background Image */}
@@ -180,8 +180,8 @@ export default function FeaturedProperties() {
                                                     key={i}
                                                     size={16}
                                                     className={`${i < Math.floor(property.rating)
-                                                            ? "fill-[#c0652a] text-[#c0652a]"
-                                                            : "text-gray-400"
+                                                        ? "fill-[#c0652a] text-[#c0652a]"
+                                                        : "text-gray-400"
                                                         }`}
                                                 />
                                             ))}
@@ -252,8 +252,8 @@ export default function FeaturedProperties() {
                                 }
                             }}
                             className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex
-                                    ? "w-8 bg-[#c0652a]"
-                                    : "w-2 bg-gray-300 hover:bg-gray-400"
+                                ? "w-8 bg-[#c0652a]"
+                                : "w-2 bg-gray-300 hover:bg-gray-400"
                                 }`}
                             aria-label={`Go to property ${index + 1}`}
                         />
