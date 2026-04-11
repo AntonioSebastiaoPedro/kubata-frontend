@@ -21,12 +21,12 @@ export default function Header() {
     <header className="bg-white shadow-sm fixed w-full top-0 z-50">
       <nav className="container mx-auto px-4 py-4 flex items-center">
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex items-center space-x-4">
+        <ul className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
             <li key={item.label}>
               <a
                 href={item.href}
-                className="text-sm text-[#4a2e1f] hover:text-[#c0652a] transition-colors font-normal"
+                className="text-sm text-gray-700 hover:text-[#c0652a] transition-colors font-normal"
               >
                 {item.label}
               </a>
@@ -50,7 +50,7 @@ export default function Header() {
           {/* Search Button */}
           <button
             aria-label="Buscar"
-            className="p-2 rounded-lg hover:bg-gray-100 transition-colors text-[#4a2e1f]"
+            className="p-2 rounded-lg hover:bg-gray-100 transition-colors text-[#4a2e1f] cursor-pointer"
           >
             <Search size={20} />
           </button>
@@ -60,10 +60,10 @@ export default function Header() {
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-3">
-            <button className="px-4 py-2 text-[#4a2e1f] hover:text-[#c0652a] font-medium transition-colors">
+            <button className="px-4 py-2 text-[#4a2e1f] hover:text-[#c0652a] font-medium transition-colors cursor-pointer">
               Login
             </button>
-            <button className="px-6 py-2 bg-[#c0652a] text-white rounded-lg hover:bg-[#b8561f] transition-colors font-medium">
+            <button className="px-6 py-2 bg-[#c0652a] text-white rounded-lg hover:bg-[#b8561f] transition-colors font-medium cursor-pointer">
               Registar
             </button>
           </div>
