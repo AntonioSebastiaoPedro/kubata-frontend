@@ -29,7 +29,7 @@ export default function Highlight() {
                                 height={400}
                                 className="w-full h-auto object-cover"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                            <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent"></div>
                         </div>
                     </div>
 
@@ -38,7 +38,7 @@ export default function Highlight() {
                         <div className="space-y-3">
                             {/* Category 1 */}
                             <button className="w-full group flex items-start gap-3 pb-3 border-b border-gray-300 hover:border-[#c0652a] transition-colors text-left">
-                                <Home size={20} className="text-[#c0652a] mt-1 flex-shrink-0" />
+                                <Home size={20} className="text-[#c0652a] mt-1 shrink-0" />
                                 <div>
                                     <h3 className="font-medium text-[#4a2e1f] group-hover:text-[#c0652a] transition-colors">
                                         Apartamentos Urbanos
@@ -49,7 +49,7 @@ export default function Highlight() {
 
                             {/* Category 2 */}
                             <button className="w-full group flex items-start gap-3 pb-3 border-b border-gray-300 hover:border-[#c0652a] transition-colors text-left">
-                                <Building size={20} className="text-[#c0652a] mt-1 flex-shrink-0" />
+                                <Building size={20} className="text-[#c0652a] mt-1 shrink-0" />
                                 <div>
                                     <h3 className="font-medium text-[#4a2e1f] group-hover:text-[#c0652a] transition-colors">
                                         Casas Familiares
@@ -60,7 +60,7 @@ export default function Highlight() {
 
                             {/* Category 3 */}
                             <button className="w-full group flex items-start gap-3 pb-3 border-b border-gray-300 hover:border-[#c0652a] transition-colors text-left">
-                                <Warehouse size={20} className="text-[#c0652a] mt-1 flex-shrink-0" />
+                                <Warehouse size={20} className="text-[#c0652a] mt-1 shrink-0" />
                                 <div>
                                     <h3 className="font-medium text-[#4a2e1f] group-hover:text-[#c0652a] transition-colors">
                                         Espaços Comerciais
