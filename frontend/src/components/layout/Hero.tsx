@@ -43,7 +43,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full min-h-[67vh] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full h-[70vh] min-h-[500px] md:h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background Images Slider */}
       <div className="absolute inset-0">
         {slides.map((slide, index) => (
@@ -68,21 +68,21 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-2xl mx-auto px-4 md:px-8 text-center text-white">
-        <h1 className="text-4xl md:text-5xl font-medium mb-6 leading-tight animate-fade-in">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium mb-4 sm:mb-6 leading-tight animate-fade-in px-2">
           {slides[currentSlide].title}
         </h1>
         
-        <p className="text-base md:text-lg mb-8 text-gray-100 max-w-xl mx-auto animate-fade-in">
+        <p className="text-sm sm:text-base md:text-lg mb-8 sm:mb-10 text-gray-100 max-w-xl mx-auto animate-fade-in px-4">
           {slides[currentSlide].description}
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col md:flex-row gap-4 justify-center items-center mb-12">
-          <button className="px-8 py-3 bg-[#c0652a] hover:bg-[#b8561f] transition-colors rounded-lg font-medium flex items-center gap-2 group">
-            Começar Agora
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+        <div className="flex flex-row gap-3 justify-center items-center mb-8 sm:mb-12 w-full px-2">
+          <button className="px-4 sm:px-8 py-2.5 sm:py-3.5 bg-[#c0652a] hover:bg-[#b8561f] transition-colors rounded-xl text-xs sm:text-base font-semibold flex items-center justify-center gap-1.5 sm:gap-2 group shadow-lg shadow-[#c0652a]/20">
+            <span className="whitespace-nowrap">Começar Agora</span>
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
           </button>
-          <button className="px-8 py-3 border-2 border-white hover:bg-white hover:text-[#4a2e1f] transition-colors rounded-lg font-medium">
+          <button className="px-4 sm:px-8 py-2.5 sm:py-3.5 border-2 border-white hover:bg-white hover:text-[#4a2e1f] transition-colors rounded-xl text-xs sm:text-base font-semibold whitespace-nowrap">
             Saiba Mais
           </button>
         </div>
@@ -104,21 +104,21 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows - Desktop Only */}
       <button
         onClick={prevSlide}
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-2 rounded-none bg-[#402823] hover:bg-[#c0652a] transition-colors text-white"
+        className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 p-4 bg-[#402823]/50 hover:bg-[#c0652a] transition-all text-white backdrop-blur-sm"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-8 h-8" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-2 rounded-none bg-[#402823] hover:bg-[#c0652a] transition-colors text-white"
+        className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 p-4 bg-[#402823]/50 hover:bg-[#c0652a] transition-all text-white backdrop-blur-sm"
         aria-label="Next slide"
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-8 h-8" />
       </button>
 
       <style jsx>{`
