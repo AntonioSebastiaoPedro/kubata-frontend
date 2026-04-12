@@ -69,7 +69,7 @@ export default function Categories() {
   };
 
   return (
-    <section className="py-12 px-4 bg-white">
+    <section className="py-8 sm:py-16 px-4 bg-white overflow-hidden">
       <div className="container mx-auto">
         {/* Categories Container */}
         <div
@@ -85,7 +85,7 @@ export default function Categories() {
             {categoriesData.map((category) => (
               <div
                 key={category.id}
-                className="relative w-80 h-72 rounded-xl overflow-hidden group cursor-pointer transition-transform duration-300 hover:shadow-lg select-none shrink-0"
+                className="relative w-72 sm:w-80 h-64 sm:h-72 rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer transition-transform duration-300 hover:shadow-lg select-none shrink-0"
               >
                 {/* Background Image */}
                 <Image
@@ -99,28 +99,28 @@ export default function Categories() {
                 <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-linear-to-t from-black/70 to-transparent group-hover:from-black/80 transition-colors duration-300"></div>
 
                 {/* Content */}
-                <div className="relative h-full flex flex-col justify-between p-4">
+                <div className="relative h-full flex flex-col justify-between p-4 sm:p-6">
                   {/* Top - Title */}
                   <div>
-                    <h3 className="text-xl md:text-2xl font-medium text-[#c0652a] mb-1 drop-shadow-md">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 drop-shadow-lg">
                       {category.title}
                     </h3>
-                    <p className="text-sm text-gray-300 drop-shadow-md bg-black/40 w-fit px-2 py-1 rounded">
+                    <p className="text-xs sm:text-sm text-gray-200 drop-shadow-md bg-black/40 backdrop-blur-md w-fit px-3 py-1 rounded-full border border-white/10">
                       {category.count}
                     </p>
                   </div>
 
-                  {/* Bottom - Price and Button */}
-                  <div className="flex items-center justify-between w-full">
-                    <div>
-                      <p className="text-sm font-semibold text-white">
-                        {category.price}
-                      </p>
+                    {/* Bottom - Price and Button */}
+                    <div className="flex items-center justify-between w-full gap-2">
+                      <div>
+                        <p className="text-xs sm:text-sm font-semibold text-white">
+                          {category.price}
+                        </p>
+                      </div>
+                      <button className="px-4 sm:px-6 py-2 bg-[#c0652a] hover:bg-[#b8561f] text-white rounded-lg font-semibold transition-all text-xs sm:text-sm whitespace-nowrap active:scale-95 shadow-lg shadow-[#c0652a]/20">
+                        Ver Mais
+                      </button>
                     </div>
-                    <button className="px-6 py-2 bg-[#c0652a] hover:bg-[#b8561f] text-white rounded-lg font-medium transition-colors text-sm whitespace-nowrap">
-                      Ver Mais
-                    </button>
-                  </div>
                 </div>
               </div>
             ))}
