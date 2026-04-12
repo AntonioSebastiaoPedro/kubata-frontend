@@ -123,23 +123,19 @@ export default function FeaturedProperties() {
     }, []);
 
     return (
-        <section className="py-16 px-0 bg-gray-100">
-            <div className="container mx-auto">
-
-                <div className="" >
-                    <div>
-                        <h2 className="text-3xl md:text-4xl font-medium text-[#4a2e1f] mb-2">
-                            Propriedades em Destaque
-                        </h2>
-                        <p className="text-gray-600 mb-8 leading-relaxed">
-                            Conheça nossas seleções premium de propriedades mais procuradas. Deslize para explorar mais detalhes.
-                        </p>
-                    </div>
-                    <div>
-
-                    </div>
+        <section className="py-10 sm:py-20 bg-gray-50 overflow-hidden">
+            <div className="container mx-auto px-4">
+                <div className="mb-8 lg:mb-12">
+                    <h2 className="text-3xl md:text-5xl font-bold text-[#4a2e1f] mb-4">
+                        Propriedades em Destaque
+                    </h2>
+                    <p className="text-gray-600 max-w-2xl leading-relaxed text-sm sm:text-base">
+                        Conheça nossas seleções premium de propriedades mais procuradas. Deslize para explorar mais detalhes.
+                    </p>
                 </div>
+            </div>
 
+            <div className="container mx-auto">
                 {/* Properties Carousel */}
                 <div
                     ref={containerRef}
@@ -147,14 +143,14 @@ export default function FeaturedProperties() {
                     onMouseMove={handleMouseMove}
                     onMouseUp={handleMouseUp}
                     onMouseLeave={handleMouseUp}
-                    className="overflow-x-scroll scrollbar-hide"
+                    className="overflow-x-scroll scrollbar-hide snap-x snap-mandatory px-4 sm:px-0"
                     style={{ scrollBehavior: "smooth" }}
                 >
-                    <div className="flex gap-5 pb-4" style={{ width: "max-content" }}>
+                    <div className="flex gap-4 sm:gap-6 pb-8" style={{ width: "max-content" }}>
                         {propertiesData.map((property, index) => (
                             <div
                                 key={property.id}
-                                className={`relative rounded-sm overflow-hidden shrink-0 transition-all duration-300 card-featured ${index === currentIndex
+                                className={`relative rounded-2xl sm:rounded-3xl overflow-hidden shrink-0 transition-all duration-300 snap-center card-featured ${index === currentIndex
                                     ? "card-featured-active"
                                     : "card-featured-inactive"
                                     }`}
@@ -171,7 +167,7 @@ export default function FeaturedProperties() {
                                 <div className="absolute bottom-0 left-0 right-0 h-3/5 bg-linear-to-t from-black/90 via-black/50 to-transparent"></div>
 
                                 {/* Content */}
-                                <div className="absolute bottom-0 left-0 right-0 p-6">
+                                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-8">
                                     {/* Rating */}
                                     <div className="flex items-center gap-1 mb-3">
                                         <div className="flex items-center gap-1">
@@ -192,14 +188,14 @@ export default function FeaturedProperties() {
                                     </div>
 
                                     {/* Title */}
-                                    <h3 className="text-2xl font-semibold text-white mb-2">
+                                    <h3 className="text-xl sm:text-3xl font-bold text-white mb-2 line-clamp-1">
                                         {property.title}
                                     </h3>
 
                                     {/* Location */}
-                                    <div className="flex items-center gap-2 text-gray-200 mb-3">
-                                        <MapPin size={18} className="text-[#c0652a]" />
-                                        <span className="text-sm">{property.location}</span>
+                                    <div className="flex items-center gap-2 text-gray-200 mb-4">
+                                        <MapPin size={16} className="text-[#c0652a]" />
+                                        <span className="text-xs sm:text-sm">{property.location}</span>
                                     </div>
 
                                     {/* Description */}
@@ -208,25 +204,25 @@ export default function FeaturedProperties() {
                                     </p>
 
                                     {/* Features */}
-                                    <div className="flex gap-4 mb-4 text-gray-200 text-sm">
-                                        <div className="flex items-center gap-1">
+                                    <div className="flex gap-4 mb-4 sm:mb-6 text-gray-200 text-xs sm:text-sm">
+                                        <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
                                             <span>🛏️</span>
                                             <span>{property.bedrooms} Quartos</span>
                                         </div>
-                                        <div className="flex items-center gap-1">
+                                        <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
                                             <span>🚿</span>
                                             <span>{property.bathrooms} Banheiros</span>
                                         </div>
                                     </div>
 
                                     {/* Bottom Section */}
-                                    <div className="flex items-center justify-between">
+                                    <div className="flex items-center justify-between gap-4 mt-2">
                                         <div>
-                                            <p className="text-[#c0652a] font-semibold text-lg">
+                                            <p className="text-[#c0652a] font-bold text-lg sm:text-2xl">
                                                 {property.price}
                                             </p>
                                         </div>
-                                        <button className="px-6 py-2 bg-[#c0652a] hover:bg-[#b8561f] text-white rounded-sm font-medium transition-colors">
+                                        <button className="px-5 sm:px-8 py-2.5 sm:py-3.5 bg-[#c0652a] hover:bg-[#b8561f] text-white rounded-xl font-bold transition-all text-xs sm:text-sm shadow-lg shadow-[#c0652a]/30 active:scale-95 whitespace-nowrap">
                                             Ver Detalhes
                                         </button>
                                     </div>
@@ -263,21 +259,16 @@ export default function FeaturedProperties() {
 
             <style jsx>{`
         .card-featured {
-          width: 900px;
-          height: 480px;
+          width: calc(100vw - 48px);
+          max-width: 900px;
+          height: 400px;
           flex-shrink: 0;
         }
 
-        .card-featured-active {
-          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-            0 20px 20px -10px rgba(0, 0, 0, 0.04);
-          opacity: 1;
-        }
-
-        .card-featured-inactive {
-          opacity: 0.7;
-          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-            0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        @media (min-width: 640px) {
+          .card-featured {
+            height: 480px;
+          }
         }
 
         .scrollbar-hide {
