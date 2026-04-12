@@ -70,7 +70,7 @@ export default function Categories() {
 
   return (
     <section className="py-8 sm:py-16 px-4 bg-white overflow-hidden">
-      <div className="container mx-auto">
+      <div className="container md:max-w-7xl  mx-auto">
         {/* Categories Container */}
         <div
           ref={containerRef}

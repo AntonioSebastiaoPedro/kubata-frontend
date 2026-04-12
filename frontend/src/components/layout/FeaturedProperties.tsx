@@ -124,7 +124,7 @@ export default function FeaturedProperties() {
 
     return (
         <section className="py-10 sm:py-20 bg-gray-50 overflow-hidden">
-            <div className="container mx-auto px-4">
+            <div className="container md:max-w-7xl  mx-auto px-4">
                 <div className="mb-8 lg:mb-12">
                     <h2 className="text-3xl md:text-5xl font-bold text-[#4a2e1f] mb-4">
                         Propriedades em Destaque

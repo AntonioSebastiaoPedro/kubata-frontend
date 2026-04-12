@@ -5,7 +5,7 @@ import { Home, Building, Warehouse } from "lucide-react";
 export default function Highlight() {
     return (
         <section className="py-12 sm:py-20 px-4 bg-white overflow-hidden">
-            <div className="container mx-auto">
+            <div className="container md:max-w-7xl  mx-auto">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
                     {/* Left - Content */}
                     <div className="flex-1 text-center lg:text-left w-full max-w-2xl">

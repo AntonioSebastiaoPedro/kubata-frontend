@@ -19,7 +19,7 @@ export default function Header() {
 
   return (
     <header className="bg-white sticky w-full top-0 z-40 border-b border-gray-200">
-      <nav className="container mx-auto px-4 py-4 flex items-center">
+      <nav className="container md:max-w-7xl  mx-auto px-4 py-4 flex items-center">
         {/* Desktop Navigation */}
         <ul className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
