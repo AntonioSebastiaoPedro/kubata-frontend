@@ -10,7 +10,6 @@ import {
   Maximize, 
   Filter, 
   SlidersHorizontal,
-  ChevronDown,
   Heart,
   LayoutGrid,
   List
@@ -59,7 +58,7 @@ export default function Explore() {
                 <span>Todos os Filtros</span>
               </button>
               
-              <div className="h-10 w-[1px] bg-gray-200 mx-2 hidden lg:block"></div>
+              <div className="h-10 w-px bg-gray-200 mx-2 hidden lg:block"></div>
 
               <select className="px-5 py-3 bg-gray-50 border border-transparent rounded-xl text-sm font-medium text-[#4a2e1f] outline-none hover:bg-gray-100 transition-colors cursor-pointer appearance-none pr-10 relative">
                 <option>Tipo de Imóvel</option>
@@ -106,62 +105,74 @@ export default function Explore() {
           </div>
 
           {/* Properties Grid */}
-          <div className={`grid gap-8 ${viewType === "grid" ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" : "grid-cols-1"}`}>
+          <div className={`grid gap-6 sm:gap-8 ${viewType === "grid" ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" : "grid-cols-1"}`}>
             {properties.map((property) => (
               <div 
                 key={property.id} 
-                className={`group bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 flex ${viewType === "list" ? "flex-row h-72" : "flex-col"}`}
+                className={`group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 flex ${viewType === "list" ? "flex-row h-72" : "flex-col"}`}
               >
                 {/* Image Section */}
-                <div className={`relative overflow-hidden ${viewType === "list" ? "w-1/3" : "h-64"}`}>
+                <div className={`relative overflow-hidden ${viewType === "list" ? "w-2/5" : "h-64"}`}>
                   <Image 
                     src={property.image} 
                     alt={property.title} 
                     fill 
-                    className="object-cover group-hover:scale-110 transition-transform duration-700" 
+                    className="object-cover group-hover:scale-105 transition-transform duration-700" 
                   />
-                  <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold text-[#c0652a] uppercase tracking-wider shadow-sm">
+                  
+                  {/* Category Badge */}
+                  <div className="absolute top-4 left-4 px-3 py-1 bg-[#402823]/90 backdrop-blur-md rounded-lg text-[10px] font-bold text-white uppercase tracking-widest border border-white/10">
                     {property.category}
                   </div>
-                  <button className="absolute top-4 right-4 p-2.5 rounded-full bg-white/90 backdrop-blur-md text-gray-400 hover:text-red-500 transition-colors shadow-sm">
-                    <Heart size={18} />
+
+                  {/* Price Tag Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-linear-to-t from-black/80 to-transparent">
+                    <div className="flex items-baseline gap-1">
+                       <span className="text-white text-xl font-bold">{property.price}</span>
+                       <span className="text-white/70 text-[10px] font-medium uppercase tracking-tighter">AOA / Mês</span>
+                    </div>
+                  </div>
+
+                  {/* Favorite Button */}
+                  <button className="absolute top-4 right-4 p-2.5 rounded-xl bg-white/20 hover:bg-white backdrop-blur-md text-white hover:text-[#c0652a] transition-all border border-white/20 shadow-lg active:scale-95">
+                    <Heart size={18} className="drop-shadow-sm" />
                   </button>
                 </div>
 
                 {/* Content Section */}
-                <div className="p-6 flex flex-col justify-between flex-1">
+                <div className="p-5 flex flex-col justify-between flex-1 border-x border-b border-gray-50 rounded-b-2xl">
                   <div>
-                    <div className="flex items-center gap-1.5 text-[#c0652a] mb-2">
-                       <MapPin size={14} />
-                       <span className="text-xs font-semibold">{property.location}</span>
+                    <div className="flex items-center gap-1.5 text-[#c0652a] mb-2 px-1">
+                       <MapPin size={14} fill="currentColor" fillOpacity={0.2} />
+                       <span className="text-[11px] font-bold uppercase tracking-tight">{property.location}</span>
                     </div>
-                    <h3 className="text-lg font-bold text-[#4a2e1f] mb-2 group-hover:text-[#c0652a] transition-colors line-clamp-1">
+                    <h3 className="text-lg font-bold text-[#4a2e1f] mb-3 group-hover:text-[#c0652a] transition-colors line-clamp-1 leading-tight px-1">
                       {property.title}
                     </h3>
                   </div>
 
-                  <div className="flex items-center gap-4 py-4 border-y border-gray-50 my-2 overflow-x-auto scrollbar-hide">
-                    <div className="flex items-center gap-1.5 text-gray-500 text-xs whitespace-nowrap">
-                       <BedDouble size={16} className="text-gray-400" />
-                       <span>{property.bedrooms} Qts</span>
+                  {/* Custom Attribute Icons */}
+                  <div className="grid grid-cols-3 gap-2 py-4 border-t border-gray-50 mt-1">
+                    <div className="flex flex-col items-center justify-center p-2 rounded-xl bg-gray-50/50 hover:bg-gray-100 transition-colors">
+                       <BedDouble size={18} className="text-[#402823] mb-1" />
+                       <span className="text-[10px] font-bold text-gray-600">{property.bedrooms} Qts</span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-gray-500 text-xs whitespace-nowrap">
-                       <Bath size={16} className="text-gray-400" />
-                       <span>{property.bathrooms} Banh</span>
+                    <div className="flex flex-col items-center justify-center p-2 rounded-xl bg-gray-50/50 hover:bg-gray-100 transition-colors">
+                       <Bath size={18} className="text-[#402823] mb-1" />
+                       <span className="text-[10px] font-bold text-gray-600">{property.bathrooms} Banh</span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-gray-500 text-xs whitespace-nowrap">
-                       <Maximize size={16} className="text-gray-400" />
-                       <span>{property.area}</span>
+                    <div className="flex flex-col items-center justify-center p-2 rounded-xl bg-gray-50/50 hover:bg-gray-100 transition-colors">
+                       <Maximize size={18} className="text-[#402823] mb-1" />
+                       <span className="text-[10px] font-bold text-gray-600 font-mono tracking-tighter">{property.area}</span>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between mt-4">
-                    <div className="flex flex-col">
-                      <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Preço</span>
-                      <span className="text-xl font-bold text-[#c0652a]">{property.price} AOA</span>
-                    </div>
-                    <button className="px-6 py-3 bg-gray-50 hover:bg-[#c0652a]/10 text-[#c0652a] font-bold rounded-xl transition-all text-xs active:scale-95">
-                      Ver Mais
+                  <div className="flex items-center gap-3 mt-4">
+                    <button className="flex-1 px-4 py-3 bg-[#c0652a] hover:bg-[#b8561f] text-white font-bold rounded-xl shadow-lg shadow-[#c0652a]/20 transition-all text-xs active:scale-[0.98]">
+                      Detalhes da Propriedade
+                    </button>
+                    <button className="p-3 bg-gray-100 hover:bg-[#402823] hover:text-white text-[#402823] rounded-xl transition-all active:scale-95">
+                       <SlidersHorizontal size={18} />
                     </button>
                   </div>
                 </div>
