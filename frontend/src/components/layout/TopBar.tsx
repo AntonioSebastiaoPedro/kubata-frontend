@@ -30,13 +30,13 @@ export default function TopBar() {
   ];
 
   return (
-    <div className="bg-[#402823] border-b border-gray-700 py-1.5">
-      <div className="container mx-auto px-4">
+    <div className="bg-[#402823] border-b border-gray-700 py-1 sm:py-1.5">
+      <div className="container mx-auto px-2 sm:px-4">
         <div className="flex items-center justify-between flex-wrap gap-2">
           {/* Left Section - Social Media & Contact */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             {/* Social Media Links */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1 sm:gap-3">
               {socialLinks.map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
@@ -45,42 +45,42 @@ export default function TopBar() {
                   className="p-1 rounded-lg hover:bg-[#c0652a]/20 transition-colors text-white hover:text-[#c0652a]"
                   title={label}
                 >
-                  <Icon size={16} />
+                  <Icon size={14} className="sm:w-[16px] sm:h-[16px]" />
                 </a>
               ))}
             </div>
 
             {/* Divider */}
-            <div className="w-px h-5 bg-gray-300"></div>
+            <div className="w-px h-4 sm:h-5 bg-gray-600/50"></div>
 
             {/* Email */}
             <a
               href="mailto:info@kubata.com"
-              className="flex items-center gap-1 text-xs text-white hover:text-[#c0652a] transition-colors"
+              className="flex items-center gap-1 text-[10px] sm:text-xs text-white hover:text-[#c0652a] transition-colors"
             >
-              <Mail size={15} />
-              <span className="hidden sm:inline text-xs">info@kubata.com</span>
+              <Mail size={14} className="sm:w-[15px] sm:h-[15px]" />
+              <span className="hidden sm:inline">info@kubata.com</span>
             </a>
           </div>
 
           {/* Right Section - Wishlist, Currency & Language */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             {/* Wishlist */}
             <button
               className="p-1 rounded-lg hover:bg-[#c0652a]/20 transition-colors text-white hover:text-[#c0652a]"
               title="Lista de Desejos"
             >
-              <Heart size={16} />
+              <Heart size={14} className="sm:w-[16px] sm:h-[16px]" />
             </button>
 
             {/* Divider */}
-            <div className="w-px h-5 bg-gray-600"></div>
+            <div className="w-px h-4 sm:h-5 bg-gray-600"></div>
 
             {/* Currency Selector */}
             <div className="relative group">
-              <button className="flex items-center gap-1 px-2 py-1 text-xs rounded-lg hover:bg-[#c0652a]/20 transition-colors text-white hover:text-[#c0652a] font-medium">
+              <button className="flex items-center gap-1 px-1.5 sm:px-2 py-1 text-[10px] sm:text-xs rounded-lg hover:bg-[#c0652a]/20 transition-colors text-white hover:text-[#c0652a] font-medium">
                 {selectedCurrency}
-                <ChevronDown size={14} />
+                <ChevronDown size={12} className="sm:w-[14px] sm:h-[14px]" />
               </button>
 
               {/* Dropdown Menu */}
@@ -102,13 +102,13 @@ export default function TopBar() {
             </div>
 
             {/* Divider */}
-            <div className="w-px h-5 bg-gray-600"></div>
+            <div className="w-px h-4 sm:h-5 bg-gray-600"></div>
 
             {/* Language Selector */}
             <div className="relative group">
-              <button className="flex items-center gap-1 px-2 py-1 text-xs rounded-lg hover:bg-[#c0652a]/20 transition-colors text-white hover:text-[#c0652a] font-medium">
+              <button className="flex items-center gap-1 px-1.5 sm:px-2 py-1 text-[10px] sm:text-xs rounded-lg hover:bg-[#c0652a]/20 transition-colors text-white hover:text-[#c0652a] font-medium">
                 {selectedLanguage}
-                <ChevronDown size={14} />
+                <ChevronDown size={12} className="sm:w-[14px] sm:h-[14px]" />
               </button>
 
               {/* Dropdown Menu */}
