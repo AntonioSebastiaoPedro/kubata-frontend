@@ -80,65 +80,71 @@ export default function Header() {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-50">
-          {/* Backdrop */}
-          <div 
-            className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity"
-            onClick={() => setIsMenuOpen(false)}
-          ></div>
-          
-          {/* Menu Panel */}
-          <div className="absolute top-0 left-0 w-full bg-white shadow-2xl flex flex-col rounded-b-3xl animate-in slide-in-from-top duration-300">
-            {/* Menu Header */}
-            <div className="p-4 border-b border-gray-100 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Image
-                  src={icon}
-                  alt="Kubata"
-                  width={32}
-                  height={32}
-                  className="h-8 w-auto"
-                />
-              </div>
-              <button
-                onClick={() => setIsMenuOpen(false)}
-                className="p-2 rounded-lg hover:bg-gray-100 transition-colors text-[#4a2e1f]"
-                aria-label="Fechar menu"
-              >
-                <X size={24} />
-              </button>
+      <div 
+        className={`md:hidden fixed inset-0 z-50 transition-all duration-300 ${
+          isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        {/* Backdrop */}
+        <div 
+          className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+          onClick={() => setIsMenuOpen(false)}
+        ></div>
+        
+        {/* Menu Panel */}
+        <div 
+          className={`absolute top-0 left-0 w-full bg-white shadow-2xl flex flex-col rounded-b-3xl transition-transform duration-500 ease-in-out ${
+            isMenuOpen ? "translate-y-0" : "-translate-y-full"
+          }`}
+        >
+          {/* Menu Header */}
+          <div className="p-4 border-b border-gray-100 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Image
+                src={icon}
+                alt="Kubata"
+                width={32}
+                height={32}
+                className="h-10 w-auto"
+              />
             </div>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="p-2 rounded-lg hover:bg-gray-100 transition-colors text-[#4a2e1f]"
+              aria-label="Fechar menu"
+            >
+              <X size={24} />
+            </button>
+          </div>
 
-            {/* Menu Links */}
-            <div className="flex-1 overflow-y-auto py-2 px-6">
-              <div className="flex flex-col">
-                {navItems.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    className="flex items-center justify-between py-4 text-[#4a2e1f] hover:text-[#c0652a] transition-all font-medium border-b border-gray-100 last:border-0"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <span>{item.label}</span>
-                    <ChevronRight size={18} className="text-gray-400" />
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Menu Footer - Auth */}
-            <div className="p-6 border-t border-gray-100 bg-gray-50/30 grid grid-cols-2 gap-4 rounded-b-3xl">
-              <button className="w-full px-4 py-3.5 text-[#4a2e1f] bg-white border border-gray-200 rounded-xl font-semibold transition-all shadow-sm active:scale-95">
-                Login
-              </button>
-              <button className="w-full px-4 py-3.5 bg-[#c0652a] text-white rounded-xl hover:bg-[#b8561f] font-semibold transition-all shadow-xl shadow-[#c0652a]/20 active:scale-95">
-                Registar
-              </button>
+          {/* Menu Links */}
+          <div className="flex-1 overflow-y-auto py-2 px-6">
+            <div className="flex flex-col">
+              {navItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="flex items-center justify-between py-4 text-[#4a2e1f] hover:text-[#c0652a] transition-all font-medium border-b border-gray-100 last:border-0"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <span>{item.label}</span>
+                  <ChevronRight size={18} className="text-gray-400" />
+                </a>
+              ))}
             </div>
           </div>
+
+          {/* Menu Footer - Auth */}
+          <div className="p-6 border-t border-gray-100 bg-gray-50/30 grid grid-cols-2 gap-4 rounded-b-3xl">
+            <button className="w-full px-4 py-3.5 text-[#4a2e1f] bg-white border border-gray-200 rounded-xl font-semibold transition-all shadow-sm active:scale-95">
+              Login
+            </button>
+            <button className="w-full px-4 py-3.5 bg-[#c0652a] text-white rounded-xl hover:bg-[#b8561f] font-semibold transition-all shadow-xl shadow-[#c0652a]/20 active:scale-95">
+              Registar
+            </button>
+          </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }
