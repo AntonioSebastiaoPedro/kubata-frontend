@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu, X, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import icon from "@/src/assets/images/iconKubata.png";
 
@@ -100,7 +100,6 @@ export default function Header() {
                   height={32}
                   className="h-8 w-auto"
                 />
-                <span className="font-bold text-[#4a2e1f]">Kubata</span>
               </div>
               <button
                 onClick={() => setIsMenuOpen(false)}
@@ -112,16 +111,17 @@ export default function Header() {
             </div>
 
             {/* Menu Links */}
-            <div className="flex-1 overflow-y-auto py-8 px-6 space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+            <div className="flex-1 overflow-y-auto py-2 px-6">
+              <div className="flex flex-col">
                 {navItems.map((item) => (
                   <a
                     key={item.label}
                     href={item.href}
-                    className="flex items-center justify-center px-4 py-4 rounded-2xl text-[#4a2e1f] bg-gray-50 hover:bg-[#c0652a]/10 hover:text-[#c0652a] transition-all font-medium text-center border border-gray-100"
+                    className="flex items-center justify-between py-4 text-[#4a2e1f] hover:text-[#c0652a] transition-all font-medium border-b border-gray-100 last:border-0"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    {item.label}
+                    <span>{item.label}</span>
+                    <ChevronRight size={18} className="text-gray-400" />
                   </a>
                 ))}
               </div>
