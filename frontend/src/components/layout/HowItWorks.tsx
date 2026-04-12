@@ -38,14 +38,14 @@ export default function FAQ() {
     };
 
     return (
-        <section className="py-20 px-4 bg-white">
+        <section className="py-10 sm:py-20 px-4 bg-gray-50/50">
             <div className="container mx-auto">
                 {/* Header */}
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-medium text-[#4a2e1f] mb-4">
+                <div className="text-center mb-10 sm:mb-16">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#4a2e1f] mb-4">
                         Perguntas Frequentes
                     </h2>
-                    <p className="text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-gray-600 text-sm sm:text-base max-w-2xl mx-auto px-4">
                         Encontre respostas para as dúvidas mais comuns sobre a Kubata
                     </p>
                 </div>
@@ -59,22 +59,23 @@ export default function FAQ() {
                         >
                             <button
                                 onClick={() => toggleFAQ(index)}
-                                className="w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors"
+                                className="w-full px-5 py-3.5 sm:px-8 sm:py-5 flex items-center justify-between bg-white hover:bg-gray-50 transition-all text-left group"
                             >
-                                <h3 className="text-left text-lg font-medium text-[#4a2e1f]">
+                                <h3 className={`text-base sm:text-lg font-semibold transition-colors ${
+                                    openIndex === index ? "text-[#c0652a]" : "text-[#4a2e1f] group-hover:text-[#c0652a]"
+                                }`}>
                                     {faq.question}
                                 </h3>
-                                <ChevronDown
-                                    size={24}
-                                    className={`text-[#c0652a] shrink-0 transition-transform duration-300 ${
-                                        openIndex === index ? "rotate-180" : ""
-                                    }`}
-                                />
+                                <div className={`p-1.5 rounded-full transition-all duration-300 ${
+                                    openIndex === index ? "bg-[#c0652a] text-white rotate-180" : "bg-gray-100 text-[#c0652a]"
+                                }`}>
+                                    <ChevronDown size={20} />
+                                </div>
                             </button>
 
                             {openIndex === index && (
-                                <div className="px-6 py-4 bg-white border-t border-gray-200">
-                                    <p className="text-gray-600 leading-relaxed">
+                                <div className="px-5 py-4 sm:px-8 sm:py-6 bg-white border-t border-gray-100 animate-in fade-in slide-in-from-top-2 duration-300">
+                                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                                         {faq.answer}
                                     </p>
                                 </div>
