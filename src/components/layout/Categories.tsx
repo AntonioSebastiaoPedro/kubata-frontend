@@ -4,6 +4,7 @@
 
 import { useState, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import home1 from "@/src/assets/images/home1.jpg";
 import home2 from "@/src/assets/images/home2.jpg";
 
@@ -14,6 +15,7 @@ const categoriesData = [
     price: "A partir de 50.000 AOA",
     image: home1,
     count: "120 Propriedades",
+    slug: "Apartamento",
   },
   {
     id: 2,
@@ -21,6 +23,7 @@ const categoriesData = [
     price: "A partir de 150.000 AOA",
     image: home2,
     count: "85 Propriedades",
+    slug: "Casa",
   },
   {
     id: 3,
@@ -28,6 +31,7 @@ const categoriesData = [
     price: "A partir de 200.000 AOA",
     image: home1,
     count: "45 Propriedades",
+    slug: "Comercial",
   },
   {
     id: 4,
@@ -35,6 +39,7 @@ const categoriesData = [
     price: "A partir de 80.000 AOA",
     image: home2,
     count: "32 Propriedades",
+    slug: "Loft",
   },
   {
     id: 5,
@@ -42,6 +47,7 @@ const categoriesData = [
     price: "A partir de 300.000 AOA",
     image: home1,
     count: "28 Propriedades",
+    slug: "Villa",
   },
 ];
 
@@ -117,9 +123,9 @@ export default function Categories() {
                           {category.price}
                         </p>
                       </div>
-                      <button className="px-4 sm:px-6 py-2 bg-[#c0652a] hover:bg-[#b8561f] text-white rounded-lg font-semibold transition-all text-xs sm:text-sm whitespace-nowrap active:scale-95 shadow-lg shadow-[#c0652a]/20">
+                      <Link href={`/explore?type=${category.slug}`} className="px-4 sm:px-6 py-2 bg-[#c0652a] hover:bg-[#b8561f] text-white rounded-lg font-semibold transition-all text-xs sm:text-sm whitespace-nowrap active:scale-95 shadow-lg shadow-[#c0652a]/20 flex items-center justify-center">
                         Ver Mais
-                      </button>
+                      </Link>
                     </div>
                 </div>
               </div>

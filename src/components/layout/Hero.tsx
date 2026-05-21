@@ -3,6 +3,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import home1 from "@/src/assets/images/home1.jpg";
 import home2 from "@/src/assets/images/home2.jpg";
@@ -78,13 +79,13 @@ export default function Hero() {
 
         {/* Buttons */}
         <div className="flex flex-row gap-3 justify-center items-center mb-8 sm:mb-12 w-full px-2">
-          <button className="px-4 sm:px-8 py-2.5 sm:py-3.5 bg-[#c0652a] hover:bg-[#b8561f] transition-colors rounded-xl text-xs sm:text-base font-semibold flex items-center justify-center gap-1.5 sm:gap-2 group shadow-lg shadow-[#c0652a]/20">
+          <Link href="/explore" className="px-4 sm:px-8 py-2.5 sm:py-3.5 bg-[#c0652a] hover:bg-[#b8561f] transition-colors rounded-xl text-xs sm:text-base font-semibold flex items-center justify-center gap-1.5 sm:gap-2 group shadow-lg shadow-[#c0652a]/20">
             <span className="whitespace-nowrap">Começar Agora</span>
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
-          <button className="px-4 sm:px-8 py-2.5 sm:py-3.5 border-2 border-white hover:bg-white hover:text-[#4a2e1f] transition-colors rounded-xl text-xs sm:text-base font-semibold whitespace-nowrap">
+          </Link>
+          <Link href="/about" className="px-4 sm:px-8 py-2.5 sm:py-3.5 border-2 border-white hover:bg-white hover:text-[#4a2e1f] transition-colors rounded-xl text-xs sm:text-base font-semibold whitespace-nowrap flex items-center justify-center">
             Saiba Mais
-          </button>
+          </Link>
         </div>
 
         {/* Slide Indicators */}

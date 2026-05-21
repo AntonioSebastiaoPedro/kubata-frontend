@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { 
   Mail, 
   Lock, 
@@ -19,12 +20,16 @@ import home1 from "@/src/assets/images/home1.jpg";
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Simular carregamento
-    setTimeout(() => setIsLoading(false), 2000);
+    // Simular carregamento e redirecionar
+    setTimeout(() => {
+      setIsLoading(false);
+      router.push("/explore");
+    }, 1500);
   };
 
   return (
@@ -54,11 +59,11 @@ export default function Login() {
 
           {/* Social Login */}
           <div className="grid grid-cols-2 gap-3 mb-6">
-            <button className="flex items-center justify-center gap-2 py-2.5 px-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all font-medium text-[#4a2e1f] active:scale-95">
+            <button className="flex items-center justify-center gap-2 py-2.5 px-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all font-medium text-[#4a2e1f] active:scale-95 cursor-pointer">
               <Globe size={18} className="text-blue-500" />
               <span className="text-xs">Google</span>
             </button>
-            <button className="flex items-center justify-center gap-2 py-2.5 px-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all font-medium text-[#4a2e1f] active:scale-95">
+            <button className="flex items-center justify-center gap-2 py-2.5 px-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all font-medium text-[#4a2e1f] active:scale-95 cursor-pointer">
               <Share2 size={18} className="text-blue-600" />
               <span className="text-xs">Facebook</span>
             </button>
@@ -97,7 +102,7 @@ export default function Login() {
                 <button 
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#c0652a] transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#c0652a] transition-colors cursor-pointer"
                 >
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
@@ -121,7 +126,7 @@ export default function Login() {
             <button 
               type="submit"
               disabled={isLoading}
-              className="w-full py-3.5 bg-[#c0652a] text-white rounded-xl font-bold text-base shadow-lg shadow-[#c0652a]/20 hover:bg-[#b8561f] hover:-translate-y-0.5 active:translate-y-0 transition-all disabled:opacity-70 disabled:cursor-not-allowed mt-2"
+              className="w-full py-3.5 bg-[#c0652a] text-white rounded-xl font-bold text-base shadow-lg shadow-[#c0652a]/20 hover:bg-[#b8561f] hover:-translate-y-0.5 active:translate-y-0 transition-all disabled:opacity-70 disabled:cursor-not-allowed mt-2 cursor-pointer"
             >
               {isLoading ? "A carregar..." : "Entrar Agora"}
             </button>
@@ -130,7 +135,7 @@ export default function Login() {
           {/* Footer */}
           <p className="mt-8 text-center text-gray-600 text-xs">
             Ainda não tem conta?{" "}
-            <Link href="#" className="font-bold text-[#c0652a] hover:underline">Crie uma conta gratuita</Link>
+            <Link href="/register" className="font-bold text-[#c0652a] hover:underline">Crie uma conta gratuita</Link>
           </p>
         </div>
       </div>

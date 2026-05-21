@@ -4,6 +4,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { MapPin, Heart, Star } from "lucide-react";
 import home1 from "@/src/assets/images/home1.jpg";
 import home2 from "@/src/assets/images/home2.jpg";
@@ -77,10 +78,29 @@ export default function FeaturedProperties() {
     const [startX, setStartX] = useState(0);
     const [scrollLeft, setScrollLeft] = useState(0);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [favorites, setFavorites] = useState<number[]>([]);
 
     const CARD_WIDTH = 900; // Largura do card
     const GAP = 20; // Gap entre cards
     const CARD_WITH_GAP = CARD_WIDTH + GAP;
+
+    useEffect(() => {
+        const favs = localStorage.getItem("kubata_favorites");
+        if (favs) {
+            setFavorites(JSON.parse(favs));
+        }
+    }, []);
+
+    const toggleFavorite = (id: number) => {
+        let updatedFavs = [...favorites];
+        if (updatedFavs.includes(id)) {
+            updatedFavs = updatedFavs.filter(favId => favId !== id);
+        } else {
+            updatedFavs.push(id);
+        }
+        setFavorites(updatedFavs);
+        localStorage.setItem("kubata_favorites", JSON.stringify(updatedFavs));
+    };
 
     const handleMouseDown = (e: React.MouseEvent) => {
         if (!containerRef.current) return;
@@ -222,15 +242,18 @@ export default function FeaturedProperties() {
                                                 {property.price}
                                             </p>
                                         </div>
-                                        <button className="px-5 sm:px-8 py-2.5 sm:py-3.5 bg-[#c0652a] hover:bg-[#b8561f] text-white rounded-xl font-bold transition-all text-xs sm:text-sm shadow-lg shadow-[#c0652a]/30 active:scale-95 whitespace-nowrap">
+                                        <Link href={`/properties/${property.id}`} className="px-5 sm:px-8 py-2.5 sm:py-3.5 bg-[#c0652a] hover:bg-[#b8561f] text-white rounded-xl font-bold transition-all text-xs sm:text-sm shadow-lg shadow-[#c0652a]/30 active:scale-95 whitespace-nowrap flex items-center justify-center">
                                             Ver Detalhes
-                                        </button>
+                                        </Link>
                                     </div>
                                 </div>
 
                                 {/* Favorite Button */}
-                                <button className="absolute top-4 right-4 p-2.5 rounded-full bg-white/90 hover:bg-white transition-colors z-10">
-                                    <Heart size={20} className="text-[#c0652a]" />
+                                <button 
+                                    onClick={() => toggleFavorite(property.id)}
+                                    className="absolute top-4 right-4 p-2.5 rounded-full bg-white/90 hover:bg-white transition-colors z-10 active:scale-90"
+                                >
+                                    <Heart size={20} className={`transition-colors ${favorites.includes(property.id) ? "fill-red-500 text-red-500" : "text-[#c0652a]"}`} />
                                 </button>
                             </div>
                         ))}

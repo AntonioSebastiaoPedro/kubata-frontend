@@ -2,6 +2,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Search, Menu, X, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import icon from "@/src/assets/images/iconKubata.png";
@@ -10,11 +11,11 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "Início", href: "#" },
-    { label: "Explorar", href: "#" },
-    { label: "Serviços", href: "#" },
-    { label: "Sobre Nós", href: "#" },
-    { label: "Contacto", href: "#" },
+    { label: "Início", href: "/" },
+    { label: "Explorar", href: "/explore" },
+    { label: "Serviços", href: "/services" },
+    { label: "Sobre Nós", href: "/about" },
+    { label: "Contacto", href: "/contact" },
   ];
 
   return (
@@ -24,48 +25,51 @@ export default function Header() {
         <ul className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
             <li key={item.label}>
-              <a
+              <Link
                 href={item.href}
                 className="text-sm text-gray-700 hover:text-[#c0652a] transition-colors font-normal"
               >
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
         {/* Logo - Center */}
         <div className="md:flex-1 md:flex md:justify-center">
-          <Image
-            src={icon}
-            alt="Kubata"
-            width={120}
-            height={40}
-            className="h-10 w-auto  object-center"
-          />
+          <Link href="/">
+            <Image
+              src={icon}
+              alt="Kubata"
+              width={120}
+              height={40}
+              className="h-10 w-auto object-center"
+            />
+          </Link>
         </div>
 
         {/* Right Section */}
         <div className="flex items-center space-x-4 ml-auto">
           {/* Search Button */}
-          <button
+          <Link
+            href="/explore"
             aria-label="Buscar"
             className="p-2 rounded-lg hover:bg-gray-100 transition-colors text-[#4a2e1f] cursor-pointer"
           >
             <Search size={20} />
-          </button>
+          </Link>
 
           {/* Separator */}
           <div className="hidden md:block w-px h-6 bg-gray-300"></div>
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-3">
-            <button className="px-4 py-2 text-[#4a2e1f] hover:text-[#c0652a] font-medium transition-colors cursor-pointer">
+            <Link href="/login" className="px-4 py-2 text-[#4a2e1f] hover:text-[#c0652a] font-medium transition-colors cursor-pointer">
               Login
-            </button>
-            <button className="px-6 py-2 bg-[#c0652a] text-white rounded-lg hover:bg-[#b8561f] transition-colors font-medium cursor-pointer">
+            </Link>
+            <Link href="/register" className="px-6 py-2 bg-[#c0652a] text-white rounded-lg hover:bg-[#b8561f] transition-colors font-medium cursor-pointer">
               Registar
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -100,13 +104,15 @@ export default function Header() {
           {/* Menu Header */}
           <div className="p-4 border-b border-gray-100 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Image
-                src={icon}
-                alt="Kubata"
-                width={32}
-                height={32}
-                className="h-10 w-auto"
-              />
+              <Link href="/" onClick={() => setIsMenuOpen(false)}>
+                <Image
+                  src={icon}
+                  alt="Kubata"
+                  width={32}
+                  height={32}
+                  className="h-10 w-auto"
+                />
+              </Link>
             </div>
             <button
               onClick={() => setIsMenuOpen(false)}
@@ -121,7 +127,7 @@ export default function Header() {
           <div className="flex-1 overflow-y-auto py-2 px-6">
             <div className="flex flex-col">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
                   href={item.href}
                   className="flex items-center justify-between py-4 text-[#4a2e1f] hover:text-[#c0652a] transition-all font-medium border-b border-gray-100 last:border-0"
@@ -129,19 +135,19 @@ export default function Header() {
                 >
                   <span>{item.label}</span>
                   <ChevronRight size={18} className="text-gray-400" />
-                </a>
+                </Link>
               ))}
             </div>
           </div>
 
           {/* Menu Footer - Auth */}
           <div className="p-6 border-t border-gray-100 bg-gray-50/30 grid grid-cols-2 gap-4 rounded-b-3xl">
-            <button className="w-full px-4 py-3.5 text-[#4a2e1f] bg-white border border-gray-200 rounded-xl font-semibold transition-all shadow-sm active:scale-95">
+            <Link href="/login" onClick={() => setIsMenuOpen(false)} className="w-full text-center px-4 py-3.5 text-[#4a2e1f] bg-white border border-gray-200 rounded-xl font-semibold transition-all shadow-sm active:scale-95">
               Login
-            </button>
-            <button className="w-full px-4 py-3.5 bg-[#c0652a] text-white rounded-xl hover:bg-[#b8561f] font-semibold transition-all shadow-xl shadow-[#c0652a]/20 active:scale-95">
+            </Link>
+            <Link href="/register" onClick={() => setIsMenuOpen(false)} className="w-full text-center px-4 py-3.5 bg-[#c0652a] text-white rounded-xl hover:bg-[#b8561f] font-semibold transition-all shadow-xl shadow-[#c0652a]/20 active:scale-95">
               Registar
-            </button>
+            </Link>
           </div>
         </div>
       </div>
